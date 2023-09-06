@@ -1,0 +1,11 @@
+<IfModule mod_rewrite.c>
+  # Redirección www
+    RewriteEngine on
+    RewriteCond %{HTTP_HOST} !^www.
+    RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
+  
+  # Redirección https
+    RewriteCond %{HTTPS} !=on [NC]
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+</IfModule>
+
